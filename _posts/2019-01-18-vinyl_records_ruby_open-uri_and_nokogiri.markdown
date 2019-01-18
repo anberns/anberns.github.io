@@ -44,7 +44,7 @@ Not Your Hero by Joton on New Rhythmic
 The information is good to have but it would be really nice to hear the songs. Making this happen is not as difficult as it may seem (because of Google and Stack Overflow). It turns out that Open-uri can also download files and Ruby can fork and spawn new processes through it's fork{ } and fork { exec ... } commands found in it's Process module. There's also a Ruby module named FileUtils that helps save the file. Here's how they all fit together:
 
 
-Open-uri downloads the sample audio file from the Hard Wax server via the sample url and FileUtils saves it with a file name we can use to play it.
+-Open-uri downloads the sample audio file from the Hard Wax server via the sample url and FileUtils saves it with a file name we can use to play it.
 Solution from [https://www.reddit.com/r/ruby/comments/6x4ev4/how_to_download_an_mp3_file/](http://)
 ```
 tempfile = URI.parse(track.url).open
@@ -54,7 +54,7 @@ FileUtils.mv tempfile.path, "audio.mp3"
 
 
 
-fork { exec } hands over control to the OS's audio player, passing the newly downloaded file.
+-fork { exec } hands over control to the OS's audio player, passing the newly downloaded file.
 Solution from [https://stackoverflow.com/questions/9891297/how-do-i-play-mp3-file](http://)
 
 Mac
@@ -70,25 +70,25 @@ pid = fork{ exec 'mpg123','-q', "audio.mp3" }
 
 
 
-Throw a collection of release objects in a nested iterator and sit back as all the songs are played one after another.
+-Throw a collection of release objects in a nested iterator and sit back as all the songs are played one after another.
 
 ```
 crate.releases.each do |release|
-        release.tracks.each do |track|
-                puts "Playing-> #{release.name} - #{track.name}"
+  release.tracks.each do |track|
+    puts "Playing-> #{release.name} - #{track.name}"
                 
-                 tempfile = URI.parse(track.url).open
-                 tempfile.close
-                 FileUtils.mv tempfile.path, "audio.mp3"
+    tempfile = URI.parse(track.url).open
+    tempfile.close
+    FileUtils.mv tempfile.path, "audio.mp3"
 								 
-                 pid = fork{ exec 'afplay', "audio.mp3"}
-			 end
+    pid = fork{ exec 'afplay', "audio.mp3"}
+  end
 end                
 ```
 
 
 
-Wait. They're all playing at the same time. We need to add one last thing. 
+-Wait. They're all playing at the same time. We need to add one last thing. 
 
 ```
 waitpid(pid, 0)
@@ -113,9 +113,9 @@ end
 
 
 Now we can really sit back and let the techno come to us! 
-For more information on Ruby's Process module check out 
+
+Information on the Process and FileUtils Modules:
 [https://ruby-doc.org/core-2.2.0/Process.html](http://) 
-and for FileUtils see 
 [https://ruby-doc.org/stdlib-2.4.1/libdoc/fileutils/rdoc/FileUtils.html](http://).
 
 
