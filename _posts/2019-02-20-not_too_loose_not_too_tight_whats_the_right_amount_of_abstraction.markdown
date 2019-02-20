@@ -1,0 +1,17 @@
+---
+layout: post
+title:      "Not too loose, not too tight. What's the right amount of abstraction?"
+date:       2019-02-20 23:52:19 +0000
+permalink:  not_too_loose_not_too_tight_whats_the_right_amount_of_abstraction
+---
+
+
+Having just finished my Rails project, I've been thinking about abstraction, and more specifically, where the sweet spot lies. One end of the spectrum is Assembly, the other drog and drop software construction. The backend portion of the curriculum has provided a path through the middle by starting with Rack, then Sinatra and finally Rails. 
+
+While Rack is pretty bare bones, it's actually a fairly abstract technology when you consider how http protocols are built on top of the packet-switched octopus we call the internet. It's a nice place to start though as the process of sending and receiving data is emphasized in a way that I find gets lost as the level of abstraction increases. It would be really time consuming and difficult to build any type of dynamic application though. I like how close to the actual infrastructure we are at this level. It's like running barefoot vs. running with Hokas though. You feel close to the earth when barefoot, but you can typically run much farther, faster and more confortably when your feet are encased in inches of foam. Like working with abstracted technologies, the experience of running in cushy shoes can be pretty far from the source. Enough about running though. Moving on. 
+
+With Sinatra we get to pass data into our webpages through variables and while we're still pretty far from SPA's, we're beginning that journey. I've always appreciated this level of abstraction. Using variables and logic inside of html documents makes things interesting and more effiecient while keeping the creations in a form that is almost immediately recognizable to anyone who has worked with html and has a little scripting experience. Logical, data-filled views are similar regardless of backend technology. Jade/Pug + Javascript looks an awful lot like Jinja + Python and both look pretty much like Sinatra + Ruby. 
+
+Having spent most of my web creation time at this level and thus being most comfortable here, may be making me biased, but I quickly became nostalgic once I got to the Rails section. It's not that the data-logic-view relationship is any different here. I could still see the road, but to go back to the running analogy, the feeling just wasn't the same. Don't get me wrong, I love how quickly Rails can create an application, not to mention the seemless database-model connection of ActiveRecord, which really comes alive here. I think that the syntax and helper structures are just different enough, though, to signify a threshold crossing of some kind.
+
+Form_for, nested routing where 'old/school/urls' become new_school_paths, nested resources. Model relationships, while always a part of software construction up to this point in the curriculum, have led to mechanisms in Rails that are identifiably separate from what came before. Sort of like how hip-hop is built off of jazz, funk, motown, etc, but is a completely differnt genre with a derived, but unique syntax and structure. Maybe I'm going too far. Maybe React is more hip-hop than Rails. All I know is that with Rails, the shoes went from hauraches to Nike flex. And we haven't even talked about Gems, packages, and libraries. But I'm saving that for another blog post.
