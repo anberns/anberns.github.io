@@ -1,5 +1,0 @@
-npm run build
-
-hostwinds.com
- ->file manager
-  ->public_html -> replace files from react build folder
